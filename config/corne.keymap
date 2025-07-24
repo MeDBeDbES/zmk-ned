@@ -14,7 +14,7 @@
         compatible = "zmk,keymap";
 
         // Добавлено: RGB-подсветка для слоёв (альтернативный вариант)
-        rgb_ug {
+        rgb_ug RGB_ON {
             compatible = "zmk,rgb-underglow";
             layer_state {
                 base_color = <0x00FF00>;  // Зелёный (базовый слой)
