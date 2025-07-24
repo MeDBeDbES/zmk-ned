@@ -32,16 +32,4 @@
                                           &trans   &trans   &trans        &trans   &trans   &trans
             >;
         };
-    };
-
-    behaviors {
-        rgb_ug: rgb_underglow {
-            compatible = "zmk,rgb-underglow";
-            layer_state {
-                base_color = <0x00FF00>;
-                lower_color = <0x0000FF>;
-                upper_color = <0xFF0000>;
-            };
-        };
-    };
 };
