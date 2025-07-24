@@ -1,20 +1,26 @@
 / {
-    chosen {
-        zmk,underglow = &sk6803;  // Можно использовать любое имя, например &led_strip
+    /* Активация I2C */
+    &i2c0 {
+        compatible = "nordic,nrf-twim";
+        status = "okay";
+        sda-pin = <XX>;  // Замените XX на ваш пин SDA (например, 15 для P0.15)
+        scl-pin = <YY>;  // Замените YY на ваш пин SCL (например, 16 для P0.16)
+        clock-frequency = <I2C_BITRATE_STANDARD>;  // 100 kHz (можно уменьшить до I2C_BITRATE_FAST для теста)
     };
-};
 
-&pinctrl {
-    sk6803_default: sk6803_default {
-        group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 6)>; // Для P0.15 (или ваш пин)
-            nordic,drive-mode = <NRF_DRIVE_HIGH>; // Важно для nRF52840!
-        };
+    /* Настройка дисплея */
+    &ssd1306 {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3C>;  // Адрес I2C (0x3C или 0x3D)
+        label = "SSD1306";
+        width = <128>;
+        height = <32>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+        prechargep = <0x22>;
+        com-invdir;     // Если изображение перевёрнуто
+        segment-remap;  // Если текст зеркальный
     };
-};
-
-&pwm0 {
-    status = "okay";
-    pinctrl-0 = <&sk6803_default>;
-    pinctrl-names = "default";
 };
