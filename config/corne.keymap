@@ -13,6 +13,19 @@
         keymap {
                 compatible = "zmk,keymap";
 
+                behaviors {
+                    rgb_ug: rgb_underglow {
+                        compatible = "zmk,rgb-underglow";
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                        layer_state {
+                            default_color = <0x00FF00>; // Зеленый для базового слоя
+                            lower_color = <0x0000FF>;  // Синий для нижнего слоя
+                            raise_color = <0xFF0000>;  // Красный для верхнего слоя
+                        };
+                    };
+                };
+
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
