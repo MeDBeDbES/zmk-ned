@@ -6,7 +6,6 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Базовый слой (QWERTY)
         default_layer {
             bindings = <
                 &kp TAB  &kp Q &kp W &kp E &kp R &kp T         &kp Y &kp U &kp I    &kp O   &kp P    &kp BSPC
@@ -16,7 +15,6 @@
             >;
         };
 
-        // Нижний слой (навигация, цифры)
         lower_layer {
             bindings = <
                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5         &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp DEL
@@ -26,7 +24,6 @@
             >;
         };
 
-        // Верхний слой (спец. клавиши + Bluetooth)
         upper_layer {
             bindings = <
                 &trans   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT         &kp CIRC &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp BSPC
@@ -37,13 +34,12 @@
         };
     };
 
-    // Настройка RGB-подсветки
     rgb_ug {
         compatible = "zmk,rgb-underglow";
         layer_state {
-            base_color = <0x00FF00>;  // Зелёный (базовый слой)
-            lower_color = <0x0000FF>;  // Синий (нижний слой)
-            upper_color = <0xFF0000>;  // Красный (верхний слой)
+            base_color = <0x00FF00>;
+            lower_color = <0x0000FF>;
+            upper_color = <0xFF0000>;
         };
     };
 };
