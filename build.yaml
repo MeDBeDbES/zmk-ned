@@ -19,7 +19,7 @@
 #
 ---
 include:
-    cmake-args: 
+    #cmake-args: 
 #-DCONFIG_ZMK_STUDIO=y 
 #-DCONFIG_ZMK_USB=y  
 #-DCONFIG_ZMK_BLE=y
